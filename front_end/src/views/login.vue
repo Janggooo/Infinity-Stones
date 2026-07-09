@@ -45,8 +45,17 @@ async function handleLogin() {
   loading.value = true;
 
   try {
-    await signInWithEmailAndPassword(auth, loginId.value.trim(), loginPw.value);
-    router.push('/main');
+    const userCredential = await signInWithEmailAndPassword(
+      auth,
+      loginId.value.trim(),
+      loginPw.value
+    );
+
+const idToken = await userCredential.user.getIdToken();
+
+console.log(idToken);
+
+router.push('/main');
   } catch (err) {
     errorMsg.value = formatAuthError(err);
   } finally {
