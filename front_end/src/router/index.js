@@ -26,29 +26,54 @@ const router = createRouter({
       component: () => import('../views/ModeLogin.vue'),
     },
     {
+      path: '/moderator',
+      name: 'moderator',
+      component: () => import('../views/moderator/pending.vue'),
+    },
+    {
+      path: '/moderator/pending',
+      name: 'moderator-pending',
+      component: () => import('../views/moderator/pending.vue'),
+    },
+    {
+      path: '/moderator/accepted',
+      name: 'moderator-accepted',
+      component: () => import('../views/moderator/accepted.vue'),
+    },
+    {
+      path: '/moderator/rejected',
+      name: 'moderator-rejected',
+      component: () => import('../views/moderator/rejected.vue'),
+    },
+    {
+      path: '/moderator/all',
+      name: 'moderator-all',
+      component: () => import('../views/moderator/all.vue'),
+    },
+    {
       path: '/main',
       name: 'menu',
-      component: () => import('../views/menu.vue'),
+      component: () => import('../views/student/menu.vue'),
       meta: { requiresAuth: true },
     },
     {
       path: '/inbox',
       name: 'inbox',
-      component: () => import('../views/inbox.vue'),
+      component: () => import('../views/student/inbox.vue'),
       meta: { requiresAuth: true },
     },
     {
       path: '/events',
       name: 'events',
-      component: () => import('../views/events.vue'),
+      component: () => import('../views/student/events.vue'),
       meta: { requiresAuth: true },
     },
     {
       path: '/register',
       name: 'register',
-      component: () => import('../views/register.vue'),
+      component: () => import('../views/student/register.vue'),
       meta: { requiresAuth: true },
-    }
+    },
   ],
 })
 
